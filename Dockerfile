@@ -10,4 +10,10 @@ RUN apt-get update && \
   apt-get install -y yandex-disk
 USER $NB_USER
 
+# https://plotly.com/python/getting-started/#jupyterlab-support
+RUN conda install -y plotly
+# https://jupyter-docker-stacks.readthedocs.io/en/latest/using/recipes.html#using-pip-install-or-conda-install-in-a-child-docker-image
+RUN fix-permissions $CONDA_DIR
+RUN jupyter labextension install jupyterlab-plotly
+
 RUN fix-permissions /home/$NB_USER

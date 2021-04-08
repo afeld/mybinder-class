@@ -11,7 +11,7 @@ RUN apt-get update && \
 USER $NB_USER
 
 # https://plotly.com/python/getting-started/#jupyterlab-support
-RUN conda install -y plotly
+RUN conda install -y nltk plotly python-graphviz
 # https://jupyter-docker-stacks.readthedocs.io/en/latest/using/recipes.html#using-pip-install-or-conda-install-in-a-child-docker-image
 RUN fix-permissions $CONDA_DIR
 RUN jupyter labextension install jupyterlab-plotly
